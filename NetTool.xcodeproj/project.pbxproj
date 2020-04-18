@@ -14,6 +14,9 @@
 		3628B4E524496348004EFC1B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3628B4E324496348004EFC1B /* Main.storyboard */; };
 		3628B4F124496349004EFC1B /* NetToolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3628B4F024496349004EFC1B /* NetToolTests.swift */; };
 		3628B4FC24496349004EFC1B /* NetToolUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3628B4FB24496349004EFC1B /* NetToolUITests.swift */; };
+		3628B50A24496585004EFC1B /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3628B50924496585004EFC1B /* InputView.swift */; };
+		3628B50E244AE6A4004EFC1B /* MacEditorTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3628B50D244AE6A4004EFC1B /* MacEditorTextView.swift */; };
+		3628B511244AECD6004EFC1B /* TextType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3628B510244AECD6004EFC1B /* TextType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +51,9 @@
 		3628B4F724496349004EFC1B /* NetToolUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NetToolUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3628B4FB24496349004EFC1B /* NetToolUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetToolUITests.swift; sourceTree = "<group>"; };
 		3628B4FD24496349004EFC1B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3628B50924496585004EFC1B /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
+		3628B50D244AE6A4004EFC1B /* MacEditorTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacEditorTextView.swift; sourceTree = "<group>"; };
+		3628B510244AECD6004EFC1B /* TextType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +104,8 @@
 		3628B4D924496343004EFC1B /* NetTool */ = {
 			isa = PBXGroup;
 			children = (
+				3628B50F244AEC82004EFC1B /* package */,
+				3628B50B244AE683004EFC1B /* customer */,
 				3628B4DA24496343004EFC1B /* AppDelegate.swift */,
 				3628B4DC24496343004EFC1B /* ContentView.swift */,
 				3628B4DE24496348004EFC1B /* Assets.xcassets */,
@@ -133,6 +141,31 @@
 				3628B4FD24496349004EFC1B /* Info.plist */,
 			);
 			path = NetToolUITests;
+			sourceTree = "<group>";
+		};
+		3628B50B244AE683004EFC1B /* customer */ = {
+			isa = PBXGroup;
+			children = (
+				3628B50C244AE68D004EFC1B /* view */,
+			);
+			path = customer;
+			sourceTree = "<group>";
+		};
+		3628B50C244AE68D004EFC1B /* view */ = {
+			isa = PBXGroup;
+			children = (
+				3628B50924496585004EFC1B /* InputView.swift */,
+				3628B50D244AE6A4004EFC1B /* MacEditorTextView.swift */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		3628B50F244AEC82004EFC1B /* package */ = {
+			isa = PBXGroup;
+			children = (
+				3628B510244AECD6004EFC1B /* TextType.swift */,
+			);
+			path = package;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -266,7 +299,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3628B50A24496585004EFC1B /* InputView.swift in Sources */,
 				3628B4DD24496343004EFC1B /* ContentView.swift in Sources */,
+				3628B50E244AE6A4004EFC1B /* MacEditorTextView.swift in Sources */,
+				3628B511244AECD6004EFC1B /* TextType.swift in Sources */,
 				3628B4DB24496343004EFC1B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

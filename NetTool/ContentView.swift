@@ -8,12 +8,41 @@
 
 import SwiftUI
 
+struct FormatConvertCenter {
+    
+}
+
 struct ContentView: View {
+    
+    @State var leftInputValue: String = "left"
+    @State var rightInputValue: String = "right"
+    @State var types = textTypes
+    
+    @State var inputValue = ""
+    @State var outputValue = ""
+    
+    @State var menuTypes = textTypes
+    @State var inputType = TextType.dic
+    @State var outputType = TextType.dic
+    
+    
     var body: some View {
-        Text("Hello, World!")
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
+        VStack {
+            Text("数据格式转换")
+                .font(.largeTitle)
+                .padding()
+            
+            HSplitView {
+                InputView(inputValue: $inputValue, menus: $menuTypes, selectTextType: $inputType, title: "输入")
+                
+                InputView(inputValue: $outputValue, menus: $menuTypes, selectTextType: $outputType, title: "输出")
+                
+            }
+        }
     }
 }
+
+
 
 
 struct ContentView_Previews: PreviewProvider {
