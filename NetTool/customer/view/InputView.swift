@@ -11,9 +11,9 @@ import AppKit
 
 struct InputView: View {
     
-    @Binding var inputValue: String
+    @State var inputValue: String
     @Binding var menus: [TextType]
-    @Binding var selectTextType: TextType
+    @State var selectTextType: TextType
     var title: String
     
     var body: some View {
@@ -58,6 +58,6 @@ struct InputView_Previews: PreviewProvider {
     @State static var title = ""
     
     static var previews: some View {
-        InputView(inputValue: $text, menus: $menus, selectTextType: $selType, title: title)
+        InputView(inputValue: text, menus: $menus, selectTextType: selType, title: title)
     }
 }
