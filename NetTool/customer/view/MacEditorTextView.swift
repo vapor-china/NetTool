@@ -13,7 +13,7 @@ struct MacEditorTextView: NSViewRepresentable {
     @Binding var text: String
     
     var onEditingChanged    : () -> Void           = {}
-    var onCommit            : () -> Void          = {}
+    var onCommit            : (String) -> Void    = { _ in }
     var onTextChange        : (String) -> Void   = { _ in }
     
     func makeCoordinator() -> Coordinator {
@@ -74,7 +74,7 @@ extension MacEditorTextView {
             
             self.parent.text = textView.string
             self.selectedRanges = textView.selectedRanges
-            self.parent.onTextChange(self.parent.text)
+            self.parent.onTextChange(textView.string)
         }
         
         func textDidEndEditing(_ notification: Notification) {
@@ -83,7 +83,7 @@ extension MacEditorTextView {
             }
             
             self.parent.text = textView.string
-            self.parent.onCommit()
+            self.parent.onCommit(textView.string)
         }
     }
 }

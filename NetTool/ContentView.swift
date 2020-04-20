@@ -9,7 +9,7 @@
 import SwiftUI
 import Combine
 
-class FormatConvertCenter: ObservableObject {
+class FormatConvertCenter {
 
     
     
@@ -18,17 +18,36 @@ class FormatConvertCenter: ObservableObject {
     @State var outputType: TextType = .json
     @State var inputType: TextType = .json
     
-    @State var inputValue: String = ""
+    @State var inputValue: String = "" {
+        didSet {
+            formatOutput()
+        }
+    }
     @State var outputValue: String = ""
     
     @State var inputTitle = "输入"
     @State var outputTitle = "输出"
     
-//    let formatSignal:
+    var cacelable: Cancellable!
+    let formatSignal = PassthroughSubject<String, Never>()
     
     init() {
         
         
+       cacelable = formatSignal.sink { str in
+//            self.formatOutput()
+        self.inputValue = str
+        }
+//        cacelable = cancel1
+
+        
+        
+    }
+
+    
+    func formatOutput() {
+        print("format")
+        print("----- \(inputValue)")
     }
     
 //    init(inputType: TextType, inputValue: String, )
@@ -38,7 +57,8 @@ struct ContentView: View {
 
     @State var menuTypes = textTypes
     
-    private var dataCenter  = FormatConvertCenter()
+    private var dataCenter = FormatConvertCenter()
+    
     
     var body: some View {
         VStack {
@@ -47,8 +67,10 @@ struct ContentView: View {
                 .padding()
             
             HSplitView {
-                InputView(inputValue: dataCenter.inputValue, menus: $menuTypes, selectTextType: dataCenter.inputType, title: dataCenter.inputTitle)
-                InputView(inputValue: dataCenter.outputValue, menus: $menuTypes, selectTextType: dataCenter.outputType, title: dataCenter.outputTitle)
+                InputView(inputValue: dataCenter.$inputValue, menus: $menuTypes, selectTextType: dataCenter.inputType, title: dataCenter.inputTitle, commitEvent: dataCenter.formatSignal)
+                
+            
+                InputView(inputValue: dataCenter.$outputValue, menus: $menuTypes, selectTextType: dataCenter.outputType, title: dataCenter.outputTitle, commitEvent: nil)
                 
             }
         }

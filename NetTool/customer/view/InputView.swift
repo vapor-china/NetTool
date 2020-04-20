@@ -8,16 +8,19 @@
 
 import SwiftUI
 import AppKit
+import Combine
 
 struct InputView: View {
     
-    @State var inputValue: String
+    @Binding var inputValue: String
     @Binding var menus: [TextType]
     @State var selectTextType: TextType
     var title: String
     
+    var commitEvent: PassthroughSubject<String, Never>?
+    
     var body: some View {
-        VStack(alignment: .leading) {
+DFDSAF        VStack(alignment: .leading) {
             
             Text(title)
                 .font(.title)
@@ -36,8 +39,11 @@ struct InputView: View {
             
             MacEditorTextView(text: $inputValue, onEditingChanged: {
                 print("editing - " + self.inputValue)
-            }, onCommit: {
+            }, onCommit: { str in
                 print("commit - " + self.inputValue)
+                if let driver = self.commitEvent {
+                    driver.send(str)
+                }
             }) { (textChange) in
                 print("chagned - " + textChange)
             }.padding().frame(minWidth: 300,
@@ -58,6 +64,6 @@ struct InputView_Previews: PreviewProvider {
     @State static var title = ""
     
     static var previews: some View {
-        InputView(inputValue: text, menus: $menus, selectTextType: selType, title: title)
+        InputView(inputValue: $text, menus: $menus, selectTextType: selType, title: title)
     }
 }
