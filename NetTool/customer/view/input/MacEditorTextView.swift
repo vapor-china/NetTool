@@ -11,6 +11,7 @@ import SwiftUI
 
 struct MacEditorTextView: NSViewRepresentable {
     @Binding var text: String
+    @Binding var isEditable: Bool
     
     var onEditingChanged    : () -> Void           = {}
     var onCommit            : (String) -> Void    = { _ in }
@@ -21,7 +22,8 @@ struct MacEditorTextView: NSViewRepresentable {
     }
     
     func makeNSView(context: Context) -> CustomTextView {
-        let textView = CustomTextView(text: self.text)
+      
+        let textView = CustomTextView(text: self.text, isEditable: self.isEditable)
         textView.delegate = context.coordinator
         
         return textView
@@ -31,12 +33,32 @@ struct MacEditorTextView: NSViewRepresentable {
         view.text = text
         view.selectedRanges = context.coordinator.selectedRanges
     }
+    
+    init(text: Binding<String>, isEditable: Binding<Bool> = .constant(true)) {
+        self._text = text
+        self._isEditable = isEditable
+    }
+    
+    init(text: Binding<String>, isEditable: Binding<Bool> = .constant(true), onEditingChanged: (() -> Void)? = nil, onCommit: ((String) -> Void)? = nil, onTextChange: ((String) -> Void)? = nil) {
+        self._text = text
+        self._isEditable = isEditable
+        if let changed = onEditingChanged {
+            self.onEditingChanged = changed
+        }
+        if let commit = onCommit {
+            self.onCommit = commit
+        }
+        if let change = onTextChange {
+            self.onTextChange = change
+        }
+    }
 }
 
 #if DEBUG
 struct MacEditorTextView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
+            
             MacEditorTextView(text: .constant("{ \n    planets { \n        name \n    }\n}"))
                 .environment(\.colorScheme, .dark)
                 .previewDisplayName("Dark Mode")
@@ -153,7 +175,7 @@ final class CustomTextView: NSView {
         textView.maxSize                 = NSSize(width: CGFloat.greatestFiniteMagnitude, height: CGFloat.greatestFiniteMagnitude)
         textView.minSize                 = NSSize(width: 0, height: contentSize.height)
         textView.textColor               = NSColor.labelColor
-    
+        textView.enabledTextCheckingTypes = 0
         return textView
     }()
     

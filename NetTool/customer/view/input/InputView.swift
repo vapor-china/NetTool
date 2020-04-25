@@ -51,7 +51,6 @@ struct InputView: View {
             minHeight: 300,
             maxHeight: .infinity)
                 
-            
         }
     }
 }

@@ -13,7 +13,7 @@ struct MainView: View {
 
     @State var menuTypes = textTypes
     
-    @State private var dataCenter = ViewModel()
+    @State private var dataCenter = FormatConvertCenter()
     
     
     var body: some View {

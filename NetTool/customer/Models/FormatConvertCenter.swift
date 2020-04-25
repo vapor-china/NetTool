@@ -10,7 +10,7 @@ import SwiftUI
 import Combine
 
 
-class ViewModel {
+class FormatConvertCenter {
     var outputType: TextType = .json
     var inputType: TextType = .json
     
@@ -33,6 +33,33 @@ class ViewModel {
     func formatOutput() {
         print("format")
         print("----- \(inputValue)")
-        outputValue = inputValue
+        
+        switch inputType {
+        case .dic:
+            break
+        case .json:
+            jsonPut()
+        case .urlEncode:
+            break
+        }
+        
+//        outputValue = inputValue
     }
+    
+    func jsonPut() {
+        inputValue = "{\"123\":123}"
+        if inputValue.isJsonDic() {
+            let jsonDic = inputValue.toJsonDic()
+            print(jsonDic)
+            if outputType == .json {
+                outputValue = inputValue.toJsonStr(true)
+            }
+        } else {
+           // json str valid failed
+        }
+    }
+    
 }
+
+
+
