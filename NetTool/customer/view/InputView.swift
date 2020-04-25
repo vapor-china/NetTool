@@ -14,13 +14,13 @@ struct InputView: View {
     
     @Binding var inputValue: String
     @Binding var menus: [TextType]
-    @State var selectTextType: TextType
+    @Binding var selectTextType: TextType
     var title: String
     
     var commitEvent: PassthroughSubject<String, Never>?
     
     var body: some View {
-DFDSAF        VStack(alignment: .leading) {
+        VStack(alignment: .leading) {
             
             Text(title)
                 .font(.title)
@@ -64,6 +64,6 @@ struct InputView_Previews: PreviewProvider {
     @State static var title = ""
     
     static var previews: some View {
-        InputView(inputValue: $text, menus: $menus, selectTextType: selType, title: title)
+        InputView(inputValue: $text, menus: $menus, selectTextType: $selType, title: title)
     }
 }

@@ -17,6 +17,8 @@
 		3628B50A24496585004EFC1B /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3628B50924496585004EFC1B /* InputView.swift */; };
 		3628B50E244AE6A4004EFC1B /* MacEditorTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3628B50D244AE6A4004EFC1B /* MacEditorTextView.swift */; };
 		3628B511244AECD6004EFC1B /* TextType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3628B510244AECD6004EFC1B /* TextType.swift */; };
+		36D2D48324531F1D0041F051 /* FormatConvertCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D2D48224531F1D0041F051 /* FormatConvertCenter.swift */; };
+		36D2D48B245420C10041F051 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D2D48A245420C10041F051 /* MainView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +56,8 @@
 		3628B50924496585004EFC1B /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		3628B50D244AE6A4004EFC1B /* MacEditorTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacEditorTextView.swift; sourceTree = "<group>"; };
 		3628B510244AECD6004EFC1B /* TextType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextType.swift; sourceTree = "<group>"; };
+		36D2D48224531F1D0041F051 /* FormatConvertCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatConvertCenter.swift; sourceTree = "<group>"; };
+		36D2D48A245420C10041F051 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +150,7 @@
 		3628B50B244AE683004EFC1B /* customer */ = {
 			isa = PBXGroup;
 			children = (
+				36D2D48124531F090041F051 /* Models */,
 				3628B50C244AE68D004EFC1B /* view */,
 			);
 			path = customer;
@@ -156,6 +161,7 @@
 			children = (
 				3628B50924496585004EFC1B /* InputView.swift */,
 				3628B50D244AE6A4004EFC1B /* MacEditorTextView.swift */,
+				36D2D48A245420C10041F051 /* MainView.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -166,6 +172,14 @@
 				3628B510244AECD6004EFC1B /* TextType.swift */,
 			);
 			path = package;
+			sourceTree = "<group>";
+		};
+		36D2D48124531F090041F051 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				36D2D48224531F1D0041F051 /* FormatConvertCenter.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -300,6 +314,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				3628B50A24496585004EFC1B /* InputView.swift in Sources */,
+				36D2D48B245420C10041F051 /* MainView.swift in Sources */,
+				36D2D48324531F1D0041F051 /* FormatConvertCenter.swift in Sources */,
 				3628B4DD24496343004EFC1B /* ContentView.swift in Sources */,
 				3628B50E244AE6A4004EFC1B /* MacEditorTextView.swift in Sources */,
 				3628B511244AECD6004EFC1B /* TextType.swift in Sources */,
