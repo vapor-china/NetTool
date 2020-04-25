@@ -37,16 +37,12 @@ struct InputView: View {
             }.frame(minWidth: 50, maxWidth: 200)
                 .padding()
             
-            MacEditorTextView(text: $inputValue, onEditingChanged: {
-                print("editing - " + self.inputValue)
-            }, onCommit: { str in
-                print("commit - " + self.inputValue)
+            MacEditorTextView(text: $inputValue, onCommit: { str in
+//                print("commit - " + self.inputValue)
                 if let driver = self.commitEvent {
                     driver.send(str)
                 }
-            }) { (textChange) in
-                print("chagned - " + textChange)
-            }.padding().frame(minWidth: 300,
+            }).padding().frame(minWidth: 300,
             maxWidth: .infinity,
             minHeight: 300,
             maxHeight: .infinity)

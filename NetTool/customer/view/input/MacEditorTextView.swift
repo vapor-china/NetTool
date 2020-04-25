@@ -23,7 +23,7 @@ struct MacEditorTextView: NSViewRepresentable {
     
     func makeNSView(context: Context) -> CustomTextView {
       
-        let textView = CustomTextView(text: self.text, isEditable: self.isEditable)
+        let textView = CustomTextView(text: self.text, isEditable: self.isEditable, font: NSFont(name: "Helvetica", size: 18) ?? NSFont.systemFont(ofSize: 18))
         textView.delegate = context.coordinator
         
         return textView

@@ -37,27 +37,62 @@ class FormatConvertCenter {
         switch inputType {
         case .dic:
             break
+        case .dicSwift:
+            break
         case .json:
             jsonPut()
         case .urlEncode:
             break
         }
         
-//        outputValue = inputValue
+        //        outputValue = inputValue
     }
     
     func jsonPut() {
-        inputValue = "{\"123\":123}"
-        if inputValue.isJsonDic() {
-            let jsonDic = inputValue.toJsonDic()
-            print(jsonDic)
-            if outputType == .json {
-                outputValue = inputValue.toJsonStr(true)
+        
+        if inputValue.isJsonStr() {
+            
+            guard inputValue.isJsonDic() else {
+                // 不是键值对数据 无法数据格式转换
+                return
             }
+            
+            switch outputType {
+            case .json:
+                
+                let jsonDic = inputValue.toJsonDic()
+                print(jsonDic)
+                if outputType == .json {
+                    outputValue = inputValue.toJsonStr(true)
+                }
+                
+            case .dicSwift:
+                
+                let jsonDic = inputValue.toJsonDic()
+                print(jsonDic)
+                if outputType == .json {
+                    outputValue = inputValue.toJsonStr(true)
+                }
+                
+            case .dic:
+                let jsonDic = inputValue.toJsonDic()
+                print(jsonDic)
+                if outputType == .json {
+                    outputValue = inputValue.toJsonStr(true)
+                }
+            case .urlEncode:
+                let jsonDic = inputValue.toJsonDic()
+                print(jsonDic)
+                if outputType == .json {
+                    outputValue = inputValue.toJsonStr(true)
+                }
+            }
+            
         } else {
-           // json str valid failed
+            // json str valid failed
         }
     }
+    
     
 }
 
