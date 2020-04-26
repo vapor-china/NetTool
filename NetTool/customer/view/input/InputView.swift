@@ -54,8 +54,8 @@ struct InputView: View {
 struct InputView_Previews: PreviewProvider {
     
     @State static var text = ""
-    @State static var menus = [TextType.dic]
-    @State static var selType  = TextType.dic
+    @State static var menus = [TextType.json]
+    @State static var selType  = TextType.json
     @State static var title = ""
     
     static var previews: some View {

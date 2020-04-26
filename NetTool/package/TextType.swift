@@ -12,12 +12,12 @@ enum TextType {
     
     case json
     case urlEncode
-    case dic
+//    case dic
     case dicSwift
     
     var showText: String {
         switch self {
-        case .dic: return "Dictionary"
+//        case .dic: return "Dictionary"
         case .dicSwift: return "Swift Dictionary"
         case .json: return "JSON"
         case .urlEncode: return "x-www-form-urlencoded"
@@ -26,5 +26,5 @@ enum TextType {
 }
 
 let textTypes = [
-    TextType.json,  .urlEncode, .dic, .dicSwift
+    TextType.json,  .urlEncode, .dicSwift
 ]

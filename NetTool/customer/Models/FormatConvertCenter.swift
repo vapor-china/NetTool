@@ -35,8 +35,6 @@ class FormatConvertCenter {
         print("----- \(inputValue)")
         
         switch inputType {
-        case .dic:
-            break
         case .dicSwift:
             break
         case .json:
@@ -48,6 +46,13 @@ class FormatConvertCenter {
         //        outputValue = inputValue
     }
     
+    
+    
+}
+
+// MARK: - JSON input
+extension FormatConvertCenter {
+    
     func jsonPut() {
         
         if inputValue.isJsonStr() {
@@ -56,45 +61,26 @@ class FormatConvertCenter {
                 // 不是键值对数据 无法数据格式转换
                 return
             }
-            
             switch outputType {
             case .json:
-                
-                let jsonDic = inputValue.toJsonDic()
-                print(jsonDic)
-                if outputType == .json {
                     outputValue = inputValue.toJsonStr(true)
-                }
-                
             case .dicSwift:
-                
                 let jsonDic = inputValue.toJsonDic()
-                print(jsonDic)
-                if outputType == .json {
-                    outputValue = inputValue.toJsonStr(true)
-                }
-                
-            case .dic:
-                let jsonDic = inputValue.toJsonDic()
-                print(jsonDic)
-                if outputType == .json {
-                    outputValue = inputValue.toJsonStr(true)
-                }
+                let dicSwift = jsonDic.toSwiftDic()
+                outputValue = dicSwift
             case .urlEncode:
                 let jsonDic = inputValue.toJsonDic()
-                print(jsonDic)
-                if outputType == .json {
-                    outputValue = inputValue.toJsonStr(true)
-                }
+                outputValue = jsonDic.toFormatUrlencode()
             }
             
         } else {
             // json str valid failed
         }
     }
-    
-    
 }
 
+// MARK: - urlEncode input
+extension FormatConvertCenter {}
 
-
+// MARK: - swift dic input
+extension FormatConvertCenter {}
