@@ -80,7 +80,11 @@ extension FormatConvertCenter {
 }
 
 // MARK: - urlEncode input
-extension FormatConvertCenter {}
+extension FormatConvertCenter {
+    func formUrlEncodePut() {
+        
+    }
+}
 
 // MARK: - swift dic input
 extension FormatConvertCenter {}
