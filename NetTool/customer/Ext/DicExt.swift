@@ -28,4 +28,15 @@ extension Dictionary where Key == String, Value == Any {
         let char = paramstr.dropLast()
         return String(char)
     }
+    
+    func toJsonStr(_ isPretty: Bool = false) -> String {
+        do {
+            let serialization = try JSONSerialization.data(withJSONObject: self, options: isPretty ? [.prettyPrinted] : [])
+            return String(data: serialization, encoding: .utf8) ?? ""
+        } catch let err {
+            
+            print("valid json type error: \(err)")
+            return ""
+        }
+    }
 }

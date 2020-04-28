@@ -40,7 +40,7 @@ class FormatConvertCenter {
         case .json:
             jsonPut()
         case .urlEncode:
-            break
+            formUrlEncodePut()
         }
         
         //        outputValue = inputValue
@@ -83,8 +83,27 @@ extension FormatConvertCenter {
 extension FormatConvertCenter {
     func formUrlEncodePut() {
         
+        if inputValue.isFormUrl() {
+            
+            switch outputType {
+            case .json:
+                let dic = inputValue.formDic()
+                outputValue = dic.toJsonStr(true)
+            case .dicSwift:
+                let dic = inputValue.formDic()
+                let dicSwift = dic.toSwiftDic()
+                outputValue = dicSwift
+            case .urlEncode:
+                outputValue = inputValue
+            }
+            
+        } else {
+            
+        }
     }
 }
+
+
 
 // MARK: - swift dic input
 extension FormatConvertCenter {}

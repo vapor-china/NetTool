@@ -28,3 +28,6 @@ enum TextType {
 let textTypes = [
     TextType.json,  .urlEncode, .dicSwift
 ]
+let inputTypes = [
+    TextType.json,  .urlEncode
+]
