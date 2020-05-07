@@ -24,11 +24,8 @@ struct MainView: View {
                 .padding()
             
             HSplitView {
-                InputView(inputValue: $dataCenter.inputValue, menus: $inputMenus, selectTextType: $dataCenter.inputType, title: dataCenter.inputTitle, commitEvent: dataCenter.formatSignal)
-            
-                
-            
-                InputView(inputValue: $dataCenter.outputValue, menus: $outputMenus, selectTextType: $dataCenter.outputType, title: dataCenter.outputTitle, commitEvent: nil)
+                InputView(inputValue: $dataCenter.inputValue, menus: $inputMenus, selectTextType: $dataCenter.inputType, isEditable: Binding.constant(true), title: dataCenter.inputTitle, commitEvent: dataCenter.formatSignal)
+                InputView(inputValue: $dataCenter.outputValue, menus: $outputMenus, selectTextType: $dataCenter.outputType, isEditable: Binding.constant(false), title: dataCenter.outputTitle, commitEvent: nil)
                 
             }
         }
