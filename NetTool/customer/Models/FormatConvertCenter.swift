@@ -10,9 +10,9 @@ import SwiftUI
 import Combine
 
 
-class FormatConvertCenter {
-    var outputType: TextType = .json
-    var inputType: TextType = .json
+class FormatConvertCenter: ObservableObject {
+   @Published var outputType: TextType = .json
+   @Published var inputType: TextType = .json
     
     var inputValue: String = ""
     var outputValue: String = ""
@@ -33,6 +33,7 @@ class FormatConvertCenter {
     func formatOutput() {
         print("format")
         print("----- \(inputValue)")
+
         
         switch inputType {
         case .dicSwift:

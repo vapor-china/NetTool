@@ -14,7 +14,7 @@ struct MainView: View {
     @State var outputMenus = textTypes
     @State var inputMenus = inputTypes
     
-    @State private var dataCenter = FormatConvertCenter()
+    @ObservedObject private var dataCenter = FormatConvertCenter()
     
     
     var body: some View {
